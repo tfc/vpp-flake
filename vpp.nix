@@ -36,7 +36,7 @@ stdenv.mkDerivation {
   ];
 
   buildInputs = [
-    dpdk # must be at least 21.11
+    dpdk # must be at least 21.11 TODO assert this
     libbpf
     libbsd
     libelf
