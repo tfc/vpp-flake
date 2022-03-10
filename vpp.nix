@@ -16,7 +16,11 @@
 , subunit
 , writeScript
 , vppSource
+, lib
 }:
+
+assert lib.versionAtLeast dpdk.version "21.11";
+
 let
   version = "22.02";
   versionScript = writeScript "version" "echo ${version}-foo-bar";
@@ -36,7 +40,7 @@ stdenv.mkDerivation {
   ];
 
   buildInputs = [
-    dpdk # must be at least 21.11 TODO assert this
+    dpdk
     libbpf
     libbsd
     libelf
