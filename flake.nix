@@ -14,14 +14,15 @@
     (flake-utils.lib.eachDefaultSystem (system:
       let
         pkgs = nixpkgs.legacyPackages.${system};
-      in {
+      in
+      {
         packages.vpp = pkgs.callPackage ./vpp.nix { vppSource = vpp; };
         defaultPackage = self.packages.${system}.vpp;
       }
     )) // {
-    ciNix = flake-compat-ci.lib.recurseIntoFlakeWith {
-      flake = self;
-      systems = [ "x86_64-linux" ];
+      ciNix = flake-compat-ci.lib.recurseIntoFlakeWith {
+        flake = self;
+        systems = [ "x86_64-linux" ];
+      };
     };
-  };
 }
