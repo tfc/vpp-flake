@@ -74,7 +74,8 @@ stdenv.mkDerivation {
         -e 's/$(whoami)/itseme/' \
         -e 's/$(hostname)/mario/' \
         -e 's/^DATE_FMT.*$//' \
-        -e 's/^VPP_BUILD_DATE=.*$/SOURCE_DATE_EPOCH="2022-01-01T00:00:00"/' \
+        -e 's/^SOURCE_DATE_EPOCH.*$//' \
+        -e 's/^VPP_BUILD_DATE=.*$/VPP_BUILD_DATE="2022-01-01T00:00:00"/' \
         -e 's|$(git rev-parse[^)]\+)|/vpp-src|' \
         scripts/generate_version_h
 
