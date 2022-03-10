@@ -61,10 +61,12 @@ stdenv.mkDerivation {
   postPatch = ''
     cp ${versionScript} scripts/version
 
+    # the whole packaging stuff is full of impure scripts and
+    # not needed in our case
+    sed -i 's/cmake pkg/cmake/' CMakeLists.txt
+
     # So much about -Wall
-    sed -i \
-        -e 's/cmake pkg/cmake/' \
-        -e 's/-Wall/-Wall -Wno-stringop-overflow -Wno-unused-variable/' \
+    sed -i 's/-Wall/-Wall -Wno-stringop-overflow -Wno-unused-variable/' \
         CMakeLists.txt
 
     # this script produces impure results
