@@ -7,7 +7,7 @@
     vpp.flake = false;
   };
   outputs = { self, nixpkgs, flake-utils, vpp }:
-    (flake-utils.lib.eachDefaultSystem (system:
+    (flake-utils.lib.eachSystem [ flake-utils.lib.system.x86_64-linux ] (system:
       let
         pkgs = nixpkgs.legacyPackages.${system};
       in
