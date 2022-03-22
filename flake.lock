@@ -1,36 +1,5 @@
 {
   "nodes": {
-    "flake-compat": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1641205782,
-        "narHash": "sha256-4jY7RCWUoZ9cKD8co0/4tFARpWB+57+r1bLLvXNJliY=",
-        "owner": "edolstra",
-        "repo": "flake-compat",
-        "rev": "b7547d3eed6f32d06102ead8991ec52ab0a4f1a7",
-        "type": "github"
-      },
-      "original": {
-        "owner": "edolstra",
-        "repo": "flake-compat",
-        "type": "github"
-      }
-    },
-    "flake-compat-ci": {
-      "locked": {
-        "lastModified": 1646664117,
-        "narHash": "sha256-AX2VewPcS9eRsoirVHfnk07MHAOH6CTDiD10XtRaZbk=",
-        "owner": "hercules-ci",
-        "repo": "flake-compat-ci",
-        "rev": "e588637b2eec4261ed0d36335c83a117f2744dea",
-        "type": "github"
-      },
-      "original": {
-        "owner": "hercules-ci",
-        "repo": "flake-compat-ci",
-        "type": "github"
-      }
-    },
     "flake-utils": {
       "locked": {
         "lastModified": 1644229661,
@@ -48,11 +17,11 @@
     },
     "nixpkgs": {
       "locked": {
-        "lastModified": 1646903400,
-        "narHash": "sha256-yId/d2GrwF6CPddtBJg35jb9HuYKhtwH8+oLausAxC0=",
+        "lastModified": 1647955557,
+        "narHash": "sha256-LhitUZHPreyQbscu9aeN51BMXuqZuyL/S8HP1dLN/cU=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "085e8934e46ffb8cb31a8197cf2cd8df2f384a8d",
+        "rev": "b4c2ffaffa600ffce2121e21f65641ec92955781",
         "type": "github"
       },
       "original": {
@@ -64,8 +33,6 @@
     },
     "root": {
       "inputs": {
-        "flake-compat": "flake-compat",
-        "flake-compat-ci": "flake-compat-ci",
         "flake-utils": "flake-utils",
         "nixpkgs": "nixpkgs",
         "vpp": "vpp"
@@ -74,11 +41,11 @@
     "vpp": {
       "flake": false,
       "locked": {
-        "lastModified": 1645812862,
-        "narHash": "sha256-ZMZhllagJ1mHndwUg5mej2MgH/cxryRy+Jk9Ngj5i74=",
+        "lastModified": 1647814022,
+        "narHash": "sha256-vIVJdy6sSrqn6Pr+IkAw7Ez0ObmXTAj9rMbQQcddBuY=",
         "owner": "FDio",
         "repo": "vpp",
-        "rev": "9f0c28e7f2203213fa9ea01389d044dcce3f0afe",
+        "rev": "f4011d19edefc2f4d4d3e0d08d6e3d7c7e0889d2",
         "type": "github"
       },
       "original": {
