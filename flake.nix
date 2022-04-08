@@ -12,7 +12,14 @@
         pkgs = nixpkgs.legacyPackages.${system};
       in
       {
-        packages.vpp = pkgs.callPackage ./vpp.nix { vppSource = vpp; };
+        packages = {
+          libmemif = pkgs.callPackage ./libmemif.nix {
+            libmemifSource = vpp + "/extras/libmemif";
+          };
+          vpp = pkgs.callPackage ./vpp.nix {
+            vppSource = vpp;
+          };
+        };
         defaultPackage = self.packages.${system}.vpp;
       }
     ));
