@@ -1,17 +1,13 @@
 {
   inputs = {
     nixpkgs.url = github:NixOS/nixpkgs/master;
-    flake-utils.url = github:numtide/flake-utils;
-
     vpp.url = github:FDio/vpp/stable/2202;
     vpp.flake = false;
   };
-  outputs = { self, nixpkgs, flake-utils, vpp }:
-    (flake-utils.lib.eachSystem [ flake-utils.lib.system.x86_64-linux ] (system:
-      let
-        pkgs = nixpkgs.legacyPackages.${system};
-      in
-      {
+  outputs = inputs@{ flake-parts, vpp, ... }:
+    flake-parts.lib.mkFlake { inherit inputs; } {
+      systems = [ "x86_64-linux" "aarch64-darwin" ];
+      perSystem = { config, self', inputs', pkgs, system, ... }: {
         packages = {
           libmemif = pkgs.callPackage ./libmemif.nix {
             libmemifSource = vpp + "/extras/libmemif";
@@ -20,7 +16,6 @@
             vppSource = vpp;
           };
         };
-        defaultPackage = self.packages.${system}.vpp;
-      }
-    ));
+      };
+    };
 }
